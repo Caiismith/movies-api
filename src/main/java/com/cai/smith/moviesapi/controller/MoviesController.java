@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/movies")
 public class MoviesController {
@@ -15,8 +17,18 @@ public class MoviesController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @GetMapping()
+    public List<Movie> getAllMovies() {
+        return movieRepository.findAll();
+    }
+
+    @GetMapping("/most-liked")
+    public Movie getHighestLikedMovie() {
+        return movieRepository.findFirstByOrderByLikesDesc();
+    }
+
     @GetMapping("/{title}")
-    public Movie getMovie(@PathVariable String title) {
+    public Movie getMovieByTitle(@PathVariable String title) {
         return movieRepository.findByTitle(title);
     }
 }
