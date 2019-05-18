@@ -1,32 +1,41 @@
 package com.cai.smith.moviesapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
 public class Movie {
 
+    @Field("movie_id")
     @JsonProperty("movie_id")
     private int movieId;
 
+    @Field("title")
     @JsonProperty("title")
     private String title;
 
+    @Field("description")
     @JsonProperty("description")
     private String description;
 
+    @Field("producer")
     @JsonProperty("producer")
     private String producer;
 
+    @Field("available_in_3d")
     @JsonProperty("available_in_3d")
     private boolean availableInThreeDimension;
 
+    @Field("age_rating")
     @JsonProperty("age_rating")
     private String ageRating;
 
+    @Field("likes")
     @JsonProperty("likes")
     private int likes;
 
+    @Field("comments")
     @JsonProperty("comments")
     private List<Comment> comments;
 

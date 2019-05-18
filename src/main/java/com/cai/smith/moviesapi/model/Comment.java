@@ -1,18 +1,23 @@
 package com.cai.smith.moviesapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 public class Comment {
 
+    @Field("user")
     @JsonProperty("user")
     private String user;
 
+    @Field("message")
     @JsonProperty("message")
     private String message;
 
+    @Field("dateCreated")
     @JsonProperty("dateCreated")
     private String dateCreated;
 
+    @Field("like")
     @JsonProperty("like")
     private int like;
 

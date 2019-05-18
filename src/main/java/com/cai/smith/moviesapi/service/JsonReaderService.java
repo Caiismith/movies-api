@@ -1,6 +1,7 @@
 package com.cai.smith.moviesapi.service;
 
 import com.cai.smith.moviesapi.model.Movies;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class JsonReaderService {
         System.out.println("File Found : " + file.exists());
 
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
         return objectMapper.readValue(file, Movies.class);
     }
