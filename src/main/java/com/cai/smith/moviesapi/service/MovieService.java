@@ -24,4 +24,8 @@ public class MovieService {
     public Movie getMovieByTitle(String title) {
         return movieRepository.findByTitle(title);
     }
+
+    public Movie getMovieByMovieId(int movieId) {
+        return movieRepository.findByMovieId(movieId);
+    }
 }

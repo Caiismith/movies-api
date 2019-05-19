@@ -31,4 +31,9 @@ public class MoviesController {
     public Movie getMovieByTitle(@PathVariable String title) {
         return movieService.getMovieByTitle(title);
     }
+
+    @GetMapping("/id/{movieId}")
+    public Movie getMovieByMovieId(@PathVariable int movieId) {
+        return movieService.getMovieByMovieId(movieId);
+    }
 }
